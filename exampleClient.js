@@ -23,4 +23,4 @@ console.log(list[2000]);
 // sort counties within a given state from least to greatest total votes
 // name counties a candidate won in a state and show percent.
 // which state had the county with the largest % difference
-// which state had the county with the largest literal vote difference 
+// which state had the county with the largest literal vote difference
