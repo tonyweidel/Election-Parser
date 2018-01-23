@@ -42,11 +42,23 @@ function countyHighs(list){
 }
 
 function coutyWins(list){
-
+  let wins = [];
+  let number = list.obama-list.romney
+  for(let x = 0; x<array.length; x++){
+    if(number > 0){
+      wins.push([list[x].state,list[x].county,list[x].obamaP]);
+    }
+    else if(number < 0){
+      wins.push([list[x].state,list[x].county,list[x].romneyP]);
+    }
+  }
 }
 
 function stateCountyPercentLongshot(list){
-
+  let counties = list.sort(function(a){
+    return (a.obama-a.romney);
+  });
+  return
 }
 
 function stateCountyPercentVote(list){
