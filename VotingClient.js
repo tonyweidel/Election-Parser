@@ -25,12 +25,12 @@ function findStates(list){
 }
 
 function percentLows(list){
-  let percents = []
+  let percents = [];
   for(let x = 0; x<array.length; x++){
     if(list[x].obamap<40);
     percents.push(list[x].obamap);
   }
-  else if (list[x].romneyp<40){}
+  else if (list[x].romneyp<40){
     percents.push(list[x].romneyp);
   }
 }
@@ -43,7 +43,7 @@ function countyHighs(list){
 
 function coutyWins(list){
   let wins = [];
-  let number = list.obama-list.romney
+  let number = list.obama-list.romney;
   for(let x = 0; x<array.length; x++){
     if(number > 0){
       wins.push([list[x].state,list[x].county,list[x].obamaP]);
@@ -56,9 +56,9 @@ function coutyWins(list){
 
 function stateCountyPercentLongshot(list){
   let counties = list.sort(function(a){
-    return (a.obama-a.romney);
+    return (a.obamaP-a.romneyP);
   });
-  return
+  return counties[counties.length-1];
 }
 
 function stateCountyPercentVote(list){
