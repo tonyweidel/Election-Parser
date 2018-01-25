@@ -1,16 +1,36 @@
 const FileReader = require('./FileReader.js');
+const electionParser = require('./electionParser.js');
 
 let FR = new FileReader();
 let list = FR.LoadFileIntoArrayByLine('electionSimplified.csv');
 
 let parsedlist = votingParser(list);
 
-//
-function findCountyAmount(list,array){
+function findCountyAmountExact(list,array){
   let county = list.sort(function(a,b){
     let wordA = a.state.toLowerCase();
     let wordB = b.county.toLowerCase();
     if(county.length==67){
+      return state;
+    }
+  });
+}
+
+function findCountyAmountLessThan(list,array){
+  let county = list.sort(function(a,b){
+    let wordA = a.state.toLowerCase();
+    let wordB = b.county.toLowerCase();
+    if(county.length<67){
+      return state;
+    }
+  });
+}
+
+function findCountyAmountMoreThan(list,array){
+  let county = list.sort(function(a,b){
+    let wordA = a.state.toLowerCase();
+    let wordB = b.county.toLowerCase();
+    if(county.length>67){
       return state;
     }
   });
@@ -62,5 +82,11 @@ function stateCountyPercentLongshot(list){
 }
 
 function stateCountyPercentVote(list){
+  list.sort(function(a,b){return (a.obamaP-a.romneyP)-(b.obamaP-b.romneyP)})
+  return list[0]
+}
 
+function stateCountyLiteralVote(list){
+  list.sort(function(a,b){return (a.obama-a.romney)-(b.obama-b.romney)})
+  return list[0]
 }
